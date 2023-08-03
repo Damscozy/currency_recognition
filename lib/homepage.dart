@@ -12,14 +12,14 @@ import 'package:lottie/lottie.dart';
 // import 'package:tflite/tflite.dart';
 
 enum Artifacts {
-  five('5'),
-  ten('10'),
-  twenty('20'),
-  fifty('50'),
-  onehundred('100'),
-  twohundred('200'),
-  fivehundred('500'),
-  onethousand('1000');
+  five('Five naira'),
+  ten('Ten naira'),
+  twenty('Twenty naira'),
+  fifty('Fifty naira'),
+  onehundred('One hundred naira'),
+  twohundred('Two hundred naira'),
+  fivehundred('Five hundred naira'),
+  onethousand('One thousand naira');
 
   const Artifacts(this.title);
   final String title;

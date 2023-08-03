@@ -1,8 +1,8 @@
-50 
-1000
-200
-500
-100
-20
-10
-5
+0 Five naira
+1 Ten naira
+2 Twenty naira
+3 Fifty naira
+4 One hundred naira
+5 Two hundred naira
+6 Five hundred naira
+7 One thousand naira
