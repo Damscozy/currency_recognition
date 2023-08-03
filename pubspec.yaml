@@ -15,7 +15,8 @@ dependencies:
   gap: ^2.0.1
   lottie: ^2.0.0
   camera: ^0.10.0+4
-  just_audio: ^0.9.34
+  # just_audio: ^0.9.34
+  audioplayers: ^5.0.0
   google_fonts: ^4.0.3
   image_picker: ^0.8.3+3
   flutter_tflite: ^1.0.1
