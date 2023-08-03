@@ -13,13 +13,9 @@ dependencies:
     sdk: flutter
 
   gap: ^2.0.1
-  # tflite: 
-  #   git:
-  #     url: https://github.com/Sanjaynavgurukul/flutter_tflite.git
-  #     commit: 72ba60c
-      
   lottie: ^2.0.0
   camera: ^0.10.0+4
+  just_audio: ^0.9.34
   google_fonts: ^4.0.3
   image_picker: ^0.8.3+3
   flutter_tflite: ^1.0.1
@@ -46,6 +42,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/
+   - assets/audios/
    - assets/images/
    - assets/lotties/
    - assets/labels.txt

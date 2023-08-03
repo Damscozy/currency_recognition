@@ -59,11 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
-  final List<String> labels = <String>[
-    "assets/labels.txt",
-    "assets/english.txt",
-    "assets/yoruba.txt",
-  ];
   loadModel() async {
     String? res = await Tflite.loadModel(
         labels: "assets/labels.txt",
@@ -163,12 +158,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: MediaQuery.of(context).size.height * 0.3,
                               fit: BoxFit.contain,
                             ),
-                            // child: Image.network(
-                            //   'https://mb.cision.com/Public/1202/9566560/9f762bcfa8ef7c11_400x400ar.jpg',
-                            //   height: MediaQuery.of(context).size.height * 0.3,
-                            //   width: MediaQuery.of(context).size.width,
-                            //   fit: BoxFit.cover,
-                            // ),
                           ),
                     const SizedBox(height: 20),
                     if (_outputs != null && _outputs!.isNotEmpty
@@ -194,18 +183,70 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                               const Spacer(),
-                              Expanded(
-                                child: Text(
-                                  _outputs != null && _outputs!.isNotEmpty
-                                      ? '₦${_outputs![0]["label"]}'
-                                      : 'currency not found in the system',
-                                  style: GoogleFonts.inter(
-                                    color: Color(0xFF347F47),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.five.title))
+                                CurrencyValue(
+                                  title: '₦5.00',
+                                  subtitle: 'Five Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.ten.title))
+                                CurrencyValue(
+                                  title: '₦10.00',
+                                  subtitle: 'Ten Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.twenty.title))
+                                CurrencyValue(
+                                  title: '₦20.00',
+                                  subtitle: 'Twenty Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.fifty.title))
+                                CurrencyValue(
+                                  title: '₦50.00',
+                                  subtitle: 'Fifty Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.onehundred.title))
+                                CurrencyValue(
+                                  title: '₦100.00',
+                                  subtitle: 'One Hundred Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.twohundred.title))
+                                CurrencyValue(
+                                  title: '₦200.00',
+                                  subtitle: 'Two Hundred Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.fivehundred.title))
+                                CurrencyValue(
+                                  title: '₦500.00',
+                                  subtitle: 'Five Hundred Naira Note',
+                                )
+                              else if (_outputs != null &&
+                                  _outputs!.isNotEmpty &&
+                                  _outputs![0]["label"]
+                                      .contains(Artifacts.onehundred.title))
+                                CurrencyValue(
+                                  title: '₦1,000.00',
+                                  subtitle: 'One Thousand Naira Note',
                                 ),
-                              ),
                             ],
                           ),
                           const Gap(20),
@@ -300,21 +341,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               : Container(
                                   child: Text(''),
                                 ),
-                    // (_image == null)
-                    //     ? Container()
-                    //     : _outputs == null
-                    //         ? Text(
-                    //             'Image Not Available Yet Kindly use the below button to select an image',
-                    //             textAlign: TextAlign.center,
-                    //             style: GoogleFonts.inter(
-                    //               color: Colors.black,
-                    //               fontSize: 20,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           )
-                    //         : Container(
-                    //             child: Text(''),
-                    //           ),
                     const Gap(10),
                     InkWell(
                       onTap: () {
@@ -352,7 +378,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-
                     const Gap(20),
                     InkWell(
                       onTap: () {
@@ -392,13 +417,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: pickImage,
-      //   tooltip: 'Pick Image',
-      //   foregroundColor: Colors.white,
-      //   backgroundColor: Color(0xFF4B39EF),
-      //   child: const Icon(Icons.camera),
-      // ),
+    );
+  }
+}
+
+class CurrencyValue extends StatelessWidget {
+  final String? title;
+  final String? subtitle;
+  CurrencyValue({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          title!,
+          style: GoogleFonts.inter(
+            color: Color(0xFF347F47),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        // const Gap(5),
+        Text(
+          subtitle!,
+          style: GoogleFonts.inter(
+            color: Color(0xFF347F47),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 }
