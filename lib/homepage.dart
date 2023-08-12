@@ -187,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 title:
                                     'No image available kindly select an Image',
                                 subtitle:
-                                    'Image/picture may not clear or its not present in your model',
+                                    'Image/picture might not be clear enough or its not present in our trained model',
                               ),
                             ],
                           )
@@ -285,7 +285,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               else if (_outputs != null &&
                                   _outputs!.isNotEmpty &&
                                   _outputs![0]["label"]
-                                      .contains(Artifacts.onehundred.title))
+                                      .contains(Artifacts.onethousand.title))
                                 CurrencyValue(
                                   title: '₦1,000.00',
                                   subtitle: 'One Thousand Naira Note',
