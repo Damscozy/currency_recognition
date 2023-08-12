@@ -165,7 +165,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: _isLoading
           ? Container(
               alignment: Alignment.center,
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Color(0xFF347F47),
+              ),
             )
           : SingleChildScrollView(
               child: Container(
@@ -180,9 +182,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               NoImageFound(
                                 assets:
-                                    'assets/lotties/lf30_editor_iklprodp.json',
+                                    // 'assets/lotties/lf30_editor_iklprodp.json',
+                                    'assets/lotties/animation_ll85kjq2.json',
                                 title:
                                     'No image available kindly select an Image',
+                                subtitle:
+                                    'Image/picture may not clear or its not present in your model',
                               ),
                             ],
                           )
@@ -388,7 +393,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                                horizontal: 20, vertical: 20),
                             decoration: BoxDecoration(
                               color: Colors.transparent,
                               border: Border.all(
@@ -428,7 +433,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                                horizontal: 20, vertical: 20),
                             decoration: BoxDecoration(
                               color: Color(0xFF347F47),
                               borderRadius: BorderRadius.circular(8),
@@ -466,7 +471,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         // width: MediaQuery.of(context).size.width * .4,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                            horizontal: 20, vertical: 20),
                         decoration: BoxDecoration(
                           color: Color(0xFF347F47),
                           borderRadius: BorderRadius.circular(8),
@@ -579,10 +584,10 @@ class ImageDesc extends StatelessWidget {
 }
 
 class NoImageFound extends StatelessWidget {
-  String title;
-  String? assets;
+  String? title, subtitle, assets;
   NoImageFound({
     required this.title,
+    required this.subtitle,
     this.assets,
     Key? key,
   }) : super(key: key);
@@ -603,11 +608,20 @@ class NoImageFound extends StatelessWidget {
           ),
           const Gap(10),
           Text(
-            title,
+            title!,
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.black,
-              fontSize: 12,
+              fontSize: 14,
+            ),
+          ),
+          const Gap(10),
+          Text(
+            subtitle!,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              color: Colors.black,
+              fontSize: 14,
             ),
           ),
         ],
