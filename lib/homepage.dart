@@ -212,10 +212,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Expanded(
+                              SizedBox(
+                                width: 200,
                                 child: Text(
                                   'Currency Name (Note):',
                                   textAlign: TextAlign.left,
+                                  overflow: TextOverflow.clip,
                                   style: GoogleFonts.inter(
                                     color: Color(0xFF347F47),
                                     fontSize: 20,
@@ -448,9 +450,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 const Gap(5),
                                 Text(
-                                  _image == null
-                                      ? 'Upload Image'
-                                      : 'Re-upload Image',
+                                  _image == null ? 'Upload Image' : 'Re-upload',
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -463,39 +463,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     const Gap(20),
-                    InkWell(
-                      onTap: () async {
-                        print('Sound Button pressed ...');
-                        playSound();
-                      },
-                      child: Container(
-                        // width: MediaQuery.of(context).size.width * .4,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF347F47),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.audiotrack,
-                              size: 20,
-                              color: Colors.white,
-                            ),
-                            const Gap(5),
-                            Text(
-                              'Play Sound',
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontSize: 16,
+                    _image == null
+                        ? Container()
+                        : InkWell(
+                            onTap: () async {
+                              print('Sound Button pressed ...');
+                              playSound();
+                            },
+                            child: Container(
+                              // width: MediaQuery.of(context).size.width * .4,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 20),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF347F47),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.audiotrack,
+                                    size: 20,
+                                    color: Colors.white,
+                                  ),
+                                  const Gap(5),
+                                  Text(
+                                    'Play Sound',
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
+                          ),
                     const Gap(40),
                   ],
                 ),
