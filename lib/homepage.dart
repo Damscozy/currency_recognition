@@ -12,14 +12,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 
 enum Artifacts {
-  five('Five naira'),
-  ten('Ten naira'),
-  twenty('Twenty naira'),
-  fifty('Fifty naira'),
-  onehundred('One hundred naira'),
-  twohundred('Two hundred naira'),
-  fivehundred('Five hundred naira'),
-  onethousand('One thousand naira');
+  five('5 naira'),
+  ten('10 naira'),
+  twenty('20 naira'),
+  fifty('50 naira'),
+  onehundred('100 naira'),
+  twohundred('200 naira'),
+  fivehundred('500 naira'),
+  onethousand('1000 naira');
 
   const Artifacts(this.title);
   final String title;
